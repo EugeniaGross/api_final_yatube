@@ -14,6 +14,7 @@ cd api_final_yatube
 ```
 
 Cоздать и активировать виртуальное окружение
+
 Для Windows:
 
 ```
@@ -41,6 +42,7 @@ pip install -r requirements.txt
 ```
 
 Выполнить миграции
+
 Для Windows:
 
 ```
@@ -54,6 +56,7 @@ python3 manage.py migrate
 ```
 
 Запустить проект
+
 Для Windows:
 
 ```
