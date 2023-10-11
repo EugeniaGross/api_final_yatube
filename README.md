@@ -3,7 +3,7 @@ API социальной сети - блога, с возможностью пу
 
 ### Запуск проекта:
 
-Клонировать репозиторий и перейти в него в командной строке:
+Клонировать репозиторий и перейти в него в командной строке
 
 ```
 git clone https://github.com/yandex-praktikum/kittygram.git
@@ -13,7 +13,8 @@ git clone https://github.com/yandex-praktikum/kittygram.git
 cd api_final_yatube
 ```
 
-Cоздать и активировать виртуальное окружение:
+Cоздать и активировать виртуальное окружение
+Для Windows:
 
 ```
 python -m venv env
@@ -23,27 +24,48 @@ python -m venv env
 source venv/Scripts/activate
 ```
 
-Установить зависимости из файла requirements.txt:
+Для Linux и Mac:
 
 ```
-python -m pip install --upgrade pip
+python3 -m venv env
 ```
+
+```
+source venv/bin/activate
+```
+
+Установить зависимости из файла requirements.txt
 
 ```
 pip install -r requirements.txt
 ```
 
-Выполнить миграции:
+Выполнить миграции
+Для Windows:
 
 ```
 python manage.py migrate
 ```
 
-Запустить проект:
+Для Linux и Mac:
+
+```
+python3 manage.py migrate
+```
+
+Запустить проект
+Для Windows:
 
 ```
 python manage.py runserver
 ```
+
+Для Linux и Mac:
+
+```
+python3 manage.py runserver
+```
+
 ### Примеры:
 ### Получение списка сообществ api/v1/groups/
 [
@@ -63,3 +85,8 @@ python manage.py runserver
   "image": "string",
   "group": 0
 }
+### Используемые технологии
+Django, Django Rest Framework, Redoc
+
+### Автор
+https://github.com/EugeniaGross/
