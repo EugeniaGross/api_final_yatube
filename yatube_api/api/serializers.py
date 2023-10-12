@@ -1,4 +1,4 @@
-import base64 #Так и ничего не поняла
+import base64  # Так и ничего не поняла
 from django.core.files.base import ContentFile
 from rest_framework import serializers
 from rest_framework.relations import SlugRelatedField
