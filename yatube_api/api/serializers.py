@@ -1,10 +1,13 @@
-import base64
-
+import base64 #Так и ничего не поняла
 from django.core.files.base import ContentFile
-from posts.models import Comment, Follow, Group, Post, User
 from rest_framework import serializers
 from rest_framework.relations import SlugRelatedField
 from rest_framework.validators import UniqueTogetherValidator
+from django.contrib.auth import get_user_model
+
+from posts.models import Comment, Follow, Group, Post
+
+User = get_user_model()
 
 
 class Base64ImageField(serializers.ImageField):
@@ -37,7 +40,6 @@ class CommentSerializer(serializers.ModelSerializer):
 
 
 class GroupSerializers(serializers.ModelSerializer):
-
     class Meta:
         fields = '__all__'
         model = Group
@@ -65,8 +67,10 @@ class FollowSerializer(serializers.ModelSerializer):
             ),
         )
 
-    def validate(self, data):
-        if data['user'] == data['following']:
+    def validate_following(self, data):
+        user = self.context.get('request').user
+        if user == data:
             raise serializers.ValidationError(
-                'Нельзя подписаться на самого себя.')
+                'Нельзя подписаться на самого себя'
+            )
         return data
