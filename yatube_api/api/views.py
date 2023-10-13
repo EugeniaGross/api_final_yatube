@@ -29,8 +29,9 @@ class CommentViewSet(viewsets.ModelViewSet):
         return post.comments.all()
 
     def perform_create(self, serializer):
-        post = get_object_or_404(Post, pk=self.kwargs['post_id'])
-        serializer.save(author=self.request.user, post=post)
+        serializer.save(
+            author=self.request.user,
+            post=get_object_or_404(Post, pk=self.kwargs['post_id']))
 
 
 class GroupViewSet(viewsets.ReadOnlyModelViewSet):
@@ -48,7 +49,6 @@ class FollowViewSet(mixins.CreateModelMixin,
     search_fields = ('=following__username', )
 
     def get_queryset(self):
-        # проходит тесты только так
         return self.request.user.user.all()
 
     def perform_create(self, serializer):
